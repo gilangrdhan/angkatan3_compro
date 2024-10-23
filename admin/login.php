@@ -11,6 +11,8 @@ if (isset($_POST['login'])){
     if(mysqli_num_rows($queryLogin) > 0) {
         $rowLogin=mysqli_fetch_assoc($queryLogin);
         if($password == $rowLogin['password']){
+          $_SESSION['nama'] = $rowLogin['nama'];
+          $_SESSION['id']   = $rowLogin['id'];
             header("location:index.php");
         } else{
             header("location:login.php?login=gagal");

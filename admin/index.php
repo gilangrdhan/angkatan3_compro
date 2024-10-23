@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -48,7 +50,7 @@
             <div class="layout-page">
                 <!-- Navbar -->
 
-                <?php include 'inc/nav.php';?>
+                <?php include 'inc/nav.php'; ?>
 
                 <!-- / Navbar -->
 
