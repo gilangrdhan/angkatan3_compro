@@ -31,6 +31,8 @@ if (isset($_POST['simpan'])) {
                 die;
             } else {
                 // Pindahkan gambar dari tmp ke folder yang sudah kita buat
+                // unlink() : mendelete file
+                unlink('upload/' . $rowPengaturan['logo']);
                 move_uploaded_file($_FILES['foto']['tmp_name'], 'upload/' . $nama_foto);
                 $update = mysqli_query($koneksi, "UPDATE general_setting SET website_name='$website_name', website_link='$website_link', logo='$nama_foto', website_phone ='$website_phone', website_email ='$website_email', website_address = '$website_address' WHERE id = '$id'");
             }
@@ -230,6 +232,7 @@ if (isset($_POST['edit'])) {
                                                         <label for="" class="" form-label>Foto</label>
                                                         <input type="file"
                                                             name="foto">
+                                                        <img width="100" src=upload/<?php echo isset($rowPengaturan['logo']) ? $rowPengaturan['logo'] : '' ?> alt="">
 
                                                     </div>
                                                 </div>
